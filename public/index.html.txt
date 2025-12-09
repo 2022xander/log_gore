@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Productos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Productos</h1>
+
+  <form id="form">
+    <input id="nombre" placeholder="Nombre">
+    <input id="precio" type="number" placeholder="Precio">
+    <button type="submit">Guardar</button>
+  </form>
+
+  <ul id="lista"></ul>
+
+  <script src="app.js"></script>
+</body>
+</html>

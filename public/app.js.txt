@@ -1,0 +1,32 @@
+const API = "/api/productos";
+
+document.getElementById("form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const nombre = document.getElementById("nombre").value;
+  const precio = document.getElementById("precio").value;
+
+  await fetch(API, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ nombre, precio })
+  });
+
+  cargar();
+});
+
+async function cargar() {
+  const res = await fetch(API);
+  const productos = await res.json();
+
+  const lista = document.getElementById("lista");
+  lista.innerHTML = "";
+
+  productos.forEach(p => {
+    const li = document.createElement("li");
+    li.textContent = `${p.nombre} - $${p.precio}`;
+    lista.appendChild(li);
+  });
+}
+
+cargar();
